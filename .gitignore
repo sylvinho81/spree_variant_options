@@ -13,3 +13,4 @@ capybara-*.html
 spec/dummy
 
 tmp/**
+.idea/

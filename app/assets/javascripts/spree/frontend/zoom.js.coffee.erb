@@ -1,0 +1,27 @@
+add_image_handlers = ->
+  ($ 'ul.thumbnails li').on 'click', (event) ->
+    ($ 'img.click-to-zoom').attr 'src', "<%= asset_path "frontend/zoom.gif" %>"
+    ($ '#main-image img').first().attr 'src', ($ event.currentTarget).find('a').attr('href')
+    ($ '#main-image').data 'index', ($ event.currentTarget).index()
+    event.preventDefault()
+    event.stopPropagation()
+
+  ($ 'img.zoom-click').on 'click', (event) ->
+    index = ($ '#main-image').data 'index'
+    index = 0 if !index?
+    ($ '.fancybox')[index].click()
+    event.preventDefault()
+
+  ($ 'img.click-to-zoom').on 'mouseenter', (event) ->
+    index = ($ '#main-image').data 'index'
+    index = 0 if !index?
+    ($ '.fancybox')[index].click()
+    event.preventDefault()
+
+
+$ ->
+  ($ 'img.click-to-zoom').attr 'src', "<%= asset_path('frontend/zoom.gif') %>"
+  add_image_handlers()
+  ($ '.fancybox').fancybox()
+
+

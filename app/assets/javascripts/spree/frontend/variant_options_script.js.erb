@@ -215,6 +215,7 @@ function VariantOptions(params) {
       if (variants.find("a.option-value.out-of-stock").length != variants.find("a.option-value").length)
         price.text(i18n.variant_options_select);
     }
+   ($('img.click-to-zoom')).attr('src', "<%= asset_path('frontend/zoom.gif') %>");
   }
 
   function clear(i) {
