@@ -12,7 +12,7 @@ module SpreeVariantOptions
     end
 
     config.to_prepare &method(:activate).to_proc
-    
+
 
     initializer "spree_variant_options.environment", :before => :load_config_initializers, :after => "spree.environment" do |app|
       Dir.glob(File.join(File.dirname(__FILE__), "../../app/models/spree/app_configuration/*.rb")) do |c|
